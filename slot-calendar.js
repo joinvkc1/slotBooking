@@ -106,7 +106,7 @@
         fillPreBookings : function(){
            
             var self = this;
-            //self.fillWeekends();
+           // self.fillWeekends();
             var ranges ={};
             self.selected =[];
             var tst  =  self.settings.preBookingDetails;
@@ -175,7 +175,7 @@
             let mo = now.getMonth();
             now.setDate(1);
             while (now.getMonth() === mo) {
-                if(!(wknds.includes(new Date(now.getTime())))){
+                if(!(wknds.toString().indexOf(new Date(now.getTime()).toString())!=-1)){
                     let date_ = new Date(now.getTime());
                     let dateID = date_.toDateString().split(" ").join("-");
                     let elem =  $("#"+dateID);
