@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calendar</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="slot-calendar.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <!-- <h1 class="title">Simple Calendar</h1> -->
+    <span id="tday"></span>
+    <div id="container" class="calendar-container"></div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="slot-calendar.js"></script>
+    <script>
+       
+        $(document).ready(function(){
+            var now = new Date();
+            var min = new Date(now);
+            min.setDate(now.getDate() + 20);
+            
+            var duedate = new Date(now);
+            duedate.setDate(now.getDate() + 200);
+                // for test start
+             var preBookingDetails= {
+                                            "weekend": "no",
+                                            "whenStart": "01/01/2018",
+                                            "whenEnd": "31/31/2018",
+                                            "q": 6,
+                                            "hbd": [{
+                                                "dt": "10/01/2018",
+                                                "roPackageId": 1234,
+                                                "sfOpportunityName": "",
+                                                "packageName": "",
+                                                "salesUser": ""
+                                            }, {
+                                                "dt": "10/05/2018",
+                                                "roPackageId": 1234,
+                                                "sfOpportunityName": "",
+                                                "packageName": "",
+                                                "salesUser": ""
+                                            }, {
+                                                "dt": "10/06/2018",
+                                                "roPackageId": 1234,
+                                                "sfOpportunityName": "",
+                                                "packageName": "",
+                                                "salesUser": ""
+                                            }],
+                                            "hbr": [{
+                                                "dt": "10/02/2018",
+                                                "roPackageId": 1234,
+                                                "sfOpportunityName": "",
+                                                "packageName": "",
+                                                "salesUser": ""
+                                            }, {
+                                                "dt": "10/03/2018",
+                                                "roPackageId": 567,
+                                                "sfOpportunityName": "",
+                                                "packageName": "",
+                                                "salesUser": ""
+                                            }, {
+                                                "dt": "10/12/2018",
+                                                "roPackageId": 94,
+                                                "sfOpportunityName": "",
+                                                "packageName": "",
+                                                "salesUser": ""
+                                            }],
+                                            "sb": [{
+                                                "dt": "10/07/2018",
+                                                "roPackageId": 1234,
+                                                "sfOpportunityName": "",
+                                                "packageName": "",
+                                                "salesUser": ""
+                                            }, {
+                                                "dt": "10/08/2018",
+                                                "roPackageId": 8989,
+                                                "sfOpportunityName": "",
+                                                "packageName": "",
+                                                "salesUser": ""
+                                            }]
+                                    };
+                    //for test end
+            $("#container").slotCalendar({
+                minDate: min,
+                maxDate: duedate,
+                maxSelect: preBookingDetails.q,
+                preBookingDetails:preBookingDetails
+
+            });
+        });
+    </script>
+    
+  <table>
+      <tr>
+          <td>Quantity</td><td><span id="_quantity"></span></td>
+      </tr>
+      <tr>
+        <td>Total Available dates</td><td><span id="_total"></span></td>
+      </tr>
+      <tr>
+        <td>Total Selected Dates</td><td><span id="_selected"></span></td>
+      </tr>
+  </table>
+    
+</body>
+</html>
